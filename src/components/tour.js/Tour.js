@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './tour.css'
 
 const Tour = ({name, info, price, image, id, handleDelete}) => {
-    const [showMore, setShowMore] = useState(false);
+        const [more, setMore] = useState(false);
     return (
         <div className='tour'>
             <img src={image} alt="logo" />
@@ -11,16 +11,14 @@ const Tour = ({name, info, price, image, id, handleDelete}) => {
                 <h4>{name}</h4>
                 <h5 className='price'>{`$${price}`}</h5>
                 </div>
-                <p 
-                    className='tour-details'>
-                    {showMore ? info : info.slice(0, 120)+'...' }
-                    {<span 
-                        className='accordion-btn'
-                        onClick={()=>setShowMore(prev => !prev)}
-                    >
-                        {showMore ? 'show less' : 'show more'}
-                    </span>}
-                </p>
+                <p>
+                    {more? info: 
+                    `${info.substring(0,250)}...`}
+
+                    <button className="btn" onClick={()=> setMore(!more)}>
+                    {more? 'show less' : 'read more'}
+                    </button>
+               </p>
             </div>
            
             <button 
