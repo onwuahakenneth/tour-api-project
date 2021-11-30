@@ -10,6 +10,7 @@ const url = 'https://course-api.com/react-tours-project';
 const App = ()=> {
   const [loading, setLoading] = useState(false);
   const [toursData, setToursData] = useState(null);
+  const [toursDataCopy, setToursDataCopy] = useState(null);
   const [error, setError] = useState(null);
   
   //deleted a given tour from the list
@@ -38,6 +39,7 @@ const App = ()=> {
       })
       .then(data =>{
         setToursData(data);
+        setToursDataCopy(data);
         setLoading(false);
       })
       .catch(err =>{
@@ -52,8 +54,8 @@ const App = ()=> {
       {toursData?.length > 0 && <Header />}
       {error && <p className='error'>{error}</p>}
       {loading && <Loading text='Loading...'/>}
-      {toursData?.length <= 0 && <EmptyTour />}
-      {toursData && <Tours toursData={toursData} handleDelete={handleDelete}/>}
+      {toursData?.length <= 0 && <EmptyTour toursDataCopy={toursDataCopy} setToursData={setToursData}/>}
+      {toursData && <Tours toursData={toursData}  handleDelete={handleDelete}/>}
 
       <Footer />
     </div>

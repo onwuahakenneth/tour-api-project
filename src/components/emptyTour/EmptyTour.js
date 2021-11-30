@@ -1,10 +1,10 @@
 import React from 'react'
 import './emptyTour.css'
-const EmptyTour = () => {
+const EmptyTour = ({setToursData, toursDataCopy}) => {
     return (
         <div className='empty'>
             <p>No More Tours Remaining</p>
-            <button onClick={()=> window.location.reload()}>Refresh</button>
+            <button onClick={()=> setToursData(toursDataCopy)}>Refresh</button>
         </div>
     )
 }
