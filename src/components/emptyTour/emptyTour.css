@@ -1,0 +1,22 @@
+.empty {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.empty p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.empty button {
+    border: none;
+    outline: none;
+    color: #eee;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: 0.18rem 0.5rem;
+    background: rgb(3, 3, 139);
+    border-radius: 0.3rem;
+}
